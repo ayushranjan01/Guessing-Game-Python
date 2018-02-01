@@ -1,0 +1,34 @@
+counter = 0
+import random
+def spacing():
+    print ("")
+    print ("")
+    
+restartprogram = "y"
+validAnswers = ["y","Y","yes","YES","yeS","YeS"]
+while restartprogram in validAnswers:
+    counter += 1
+    spacing
+    print("Welcome to the guessing game!")
+    rangelimit = int(input("Enter the maximum number for the guessing range."))
+    guesslimit = int(input("Enter the maximum number of guesses."))
+    print("Guess the number it is between 1 and", rangelimit)
+    print("You have", guesslimit, "guesses.")
+    generatedRandom = random.randint(1,rangelimit)
+
+    while(counter != (guesslimit+1)):
+      
+        guess = int(input("What is your guess?"))
+        if (guess == generatedRandom):
+            print("Congratulations! You won the guessing game!")
+            break
+        if (counter == guesslimit):
+            print ("Game over! Sorry you are out of guesses!")
+            break
+        else:
+            print("Sorry! You guessed wrong! Guess again.")
+            counter+= 1
+            continue
+            
+    restartprogram = input("Would you like to restart the program?")
+    counter = 0
